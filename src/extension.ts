@@ -1,18 +1,21 @@
 import * as vscode from 'vscode';
-import player from 'play-sound';
+import * as cp from 'child_process';
 
-const play = player();
-
-function playSong() {
+function playRandomClip() {
   const mp3Path = vscode.Uri.joinPath(
-    vscode.extensions.getExtension('osaeedi.ah-push-it')!.extensionUri, 
+    vscode.extensions.getExtension('osaeedi.ah-push-it')!.extensionUri,
     'media',
     'push-it.mp3'
   ).fsPath;
 
-  play.play(mp3Path, (err: Error | null) => {
+  const maxStart = 240; // seconds (song duration - clip length)
+  const start = Math.floor(Math.random() * maxStart);
+
+  const command = `ffplay -nodisp -autoexit -ss ${start} -t 5 "${mp3Path}"`;
+
+  cp.exec(command, (err) => {
     if (err) {
-      console.error('Failed to play:', err);
+      console.error('Failed to play clip:', err.message);
     }
   });
 }
@@ -24,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
     const terminal = vscode.window.createTerminal('Push with Music');
     terminal.sendText('git push');
     terminal.show();
-    playSong();
+    playRandomClip();
   });
 
   context.subscriptions.push(disposable);
