@@ -1,26 +1,33 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import player from 'play-sound';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+const play = player();
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "ah-push-it" is now active!');
+function playSong() {
+  const mp3Path = vscode.Uri.joinPath(
+    vscode.extensions.getExtension('osaeedi.ah-push-it')!.extensionUri, 
+    'media',
+    'push-it.mp3'
+  ).fsPath;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('ah-push-it.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from ah-push-it!');
-	});
-
-	context.subscriptions.push(disposable);
+  play.play(mp3Path, (err: Error | null) => {
+    if (err) {
+      console.error('Failed to play:', err);
+    }
+  });
 }
 
-// This method is called when your extension is deactivated
+export function activate(context: vscode.ExtensionContext) {
+  console.log('Push It extension is now active!');
+
+  const disposable = vscode.commands.registerCommand('extension.pushWithMusic', () => {
+    const terminal = vscode.window.createTerminal('Push with Music');
+    terminal.sendText('git push');
+    terminal.show();
+    playSong();
+  });
+
+  context.subscriptions.push(disposable);
+}
+
 export function deactivate() {}

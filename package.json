@@ -3,6 +3,7 @@
   "displayName": "ah-push-it",
   "description": "Push your Git game to the next level! This extension plays iconic tracks like Salt-N-Pepa’s Push It every time you run git push. Because code deserves a soundtrack.",
   "version": "0.0.1",
+  "publisher": "osaeedi", 
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -14,8 +15,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "ah-push-it.helloWorld",
-        "title": "Hello World"
+        "command": "extension.pushWithMusic",
+        "title": "Push with Music"
       }
     ]
   },
@@ -48,5 +49,8 @@
   },
   "dependencies": {
     "play-sound": "^1.1.6"
-  }
+  },
+  "files": [
+    "media/push-it.mp3"
+  ]
 }
