@@ -1,6 +1,6 @@
-# ah-push-it README
+# Git up on this!
 
-This is the README for your extension "ah-push-it". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "git-up-on-this", After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

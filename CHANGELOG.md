@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the "ah-push-it" extension will be documented in this file.
+All notable changes to the "git-up-on-this" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
