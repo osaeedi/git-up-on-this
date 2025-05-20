@@ -5,6 +5,14 @@
   "version": "1.0.0",
   "publisher": "osaeedi",
   "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osaeedi/git-up-on-this"
+  },
+  "bugs": {
+    "url": "https://github.com/osaeedi/git-up-on-this/issues"
+  },
+  "homepage": "https://github.com/osaeedi/git-up-on-this#readme",
   "engines": {
     "vscode": "^1.70.0"
   },
