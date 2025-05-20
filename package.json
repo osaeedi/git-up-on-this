@@ -4,6 +4,7 @@
   "description": "Play a random clip from Salt-N-Pepa - Push It when you push to git.",
   "version": "1.0.0",
   "publisher": "osaeedi",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -18,7 +19,8 @@
     ]
   },
   "files": [
-    "media/push-it.mp3"
+    "media/push-it.mp3",
+    "icon.png"
   ],
   "scripts": {
     "compile": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --platform=node --external:vscode"
