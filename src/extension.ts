@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as cp from 'child_process';
 
 function playRandomClip() {
-  const extension = vscode.extensions.getExtension('OrhanSaeedi.git-up-on-this');
+  const extension = vscode.extensions.getExtension('Orhan Saeedi.git-up-on-this');
   if (!extension) {
     console.error('Extension not found.');
     return;
