@@ -3,7 +3,7 @@
   "displayName": "Git up on this!",
   "description": "Play a random clip from Salt-N-Pepa - Push It when you push to git.",
   "version": "1.0.0",
-  "publisher": "Orhan Saeedi",
+  "publisher": "OrhanSaeedi",
   "icon": "icon.png",
   "repository": {
     "type": "git",
